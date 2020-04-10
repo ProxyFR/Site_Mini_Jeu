@@ -53,17 +53,17 @@ nav
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 }
 
 .title{
-	border: 2px solid green;
 	font-family: "Verdana", cursive, sans-serif;
 	font-size: 3rem;
 	color: white;
 	width: 100%;
 	text-align: center;
+	margin-top: -100px;
 }
 
 
@@ -113,6 +113,7 @@ td {
 }
 
 table {
+	margin-top: -200px;
 	border-collapse: collapse;
 }
 
