@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TIC TAC TOE</title>
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" href="morpion_style.css">
+</head>
+	<body>
+	<!-- Menu de navigation -->
+	<nav>
+		<div class="logo">
+			<a href="../index.html"><h3>Mini Jeux</h3></a>
+		</div>
+		<ul class="nav-links">
+			<li><a href="morpion.html">Morpion</a></li>
+			<li><a href="#">Snake</a></li>
+			<li><a href="#">Jeu 3</a></li>
+			<li><a href="#">Jeu 4</a></li>
+		</ul>
+	</nav>
+	<div class="corp">
+		<div class="title">TIC TAC TOE</div>
+		<table>
+			<tr>
+			 <td class="cell" id="0"></td>
+			 <td class="cell" id="1"></td>
+			 <td class="cell" id="2"></td>	
+			</tr>
+			<tr>
+			 <td class="cell" id="3"></td>
+			 <td class="cell" id="4"></td>
+			 <td class="cell" id="5"></td>	
+			</tr>
+			<tr>
+			 <td class="cell" id="6"></td>
+			 <td class="cell" id="7"></td>
+			 <td class="cell" id="8"></td>	
+			</tr>
+		</table>
+	</div>	
+		<div class="endgame">
+			<div class="text"></div>
+			<button onClick ="startGame()" id="restartButton">Rejouer</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
