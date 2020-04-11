@@ -23,6 +23,7 @@ startGame();
 
 const firstPlayerName = prompt("Entrer le prenom du premier joueur: ");
 const secondPlayerName = prompt("Entrer le prenom du deuxième joueur: ");
+
 class Player {
 	constructor(mark, name) {
 		this.mark = mark;
@@ -31,6 +32,7 @@ class Player {
 }
 const Player1 = new Player("O", firstPlayerName);
 const Player2 = new Player("X", secondPlayerName);
+console.log(Player1);
 
 function startGame() {
  document.querySelector(".endgame").style.display = "none";
@@ -124,11 +126,11 @@ function gameEnd(gameWon) {
 	}
 	document.querySelector(".endgame").style.display = "block";
 
-	if (Player1.name === null && Player2.name === null) {
+	if ((Player1.name === null || Player1.name === "") && (Player2.name === null || Player2.name === "")) {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : "Le Joueur 2 a gagné!";
-	} else if (Player1.name === null) {
+	} else if (Player1.name === null || Player1.name === "") {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : (secondPlayerName + " a gagné!");		
-	}else if (Player2.name === null) {
+	}else if (Player2.name === null || Player2.name === "") {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : "Le Joueur 2 a gagné!";
 	}else {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : (secondPlayerName + " a gagné!");	
