@@ -1,8 +1,20 @@
 // basic variables
 
 let origBoard;
-const Player1 = 'O';
-const Player2 = 'X';
+
+// Asking Player to enter there name
+
+const firstPlayerName = prompt("Entrer le prenom du premier joueur: ");
+const secondPlayerName = prompt("Entrer le prenom du deuxième joueur: ");
+class Player {
+	constructor(mark, name) {
+		this.mark = mark;
+		this.name = name;
+	}
+}
+const Player1 = new Player("O", firstPlayerName);
+const Player2 = new Player("X", secondPlayerName);
+console.log(Player1);
 const endGameMessage = document.querySelector(".text");
 const winConditions = [
  [0,1,2],
@@ -43,16 +55,16 @@ function turnClick(square) {
 function countOfelm() {
 	let currentPlayer = '';
 	let oFiled = origBoard.reduce((a, e, i) =>
-		(e === Player1) ? a.concat(i) : a, []);
+		(e === Player1.mark) ? a.concat(i) : a, []);
 	let xFiled = origBoard.reduce((a, e, i) =>
-		(e === Player2) ? a.concat(i) : a, []);
+		(e === Player2.mark) ? a.concat(i) : a, []);
 	let numberOFO = oFiled["length"];
 	let numberOFX = xFiled["length"];	
 	if (numberOFO > numberOFX) { 	// Changing player turns
-		currentPlayer = Player2;
+		currentPlayer = Player2.mark;
 		return currentPlayer;
 	} else if (numberOFO === numberOFX){
-		currentPlayer = Player1;
+		currentPlayer = Player1.mark;
 		return currentPlayer;
 	}
 	
@@ -63,7 +75,7 @@ function countOfelm() {
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
-	document.getElementById(squareId).style.color = player == Player1 ? "white" : "#d93a2c";
+	document.getElementById(squareId).style.color = player == Player1.mark ? "white" : "#d93a2c";
 	countOfelm();
 	let gameWon = checkWin(origBoard, player);
 	let gameDraw = checkDraw();
@@ -90,9 +102,9 @@ function checkWin (origBoard, player) {
 function checkDraw() {
 	let gameDraw = null;
 	let oFiled = origBoard.reduce((a, e, i) =>
-		(e === Player1) ? a.concat(i) : a, []);
+		(e === Player1.mark) ? a.concat(i) : a, []);
 	let xFiled = origBoard.reduce((a, e, i) =>
-		(e === Player2) ? a.concat(i) : a, []);
+		(e === Player2.mark) ? a.concat(i) : a, []);
 	let allPlays = oFiled.concat(xFiled);		// If every cell is full  => Draww 
 	let numberOfTurnPlayed = allPlays.length;
 	if (numberOfTurnPlayed === 9) {
@@ -106,13 +118,13 @@ function checkDraw() {
 function gameEnd(gameWon) {
 	for (let index of winConditions[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
-		gameWon.player == Player1 ? "rgba(255, 255, 255, 0.5)" : "rgba(217, 58, 44, 0.5)"; //rgba(39, 76, 89, 0.5)
+		gameWon.player == Player1.mark ? "rgba(255, 255, 255, 0.5)" : "rgba(217, 58, 44, 0.5)"; 
 	}
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', turnClick, false)
 	}
 	document.querySelector(".endgame").style.display = "block";
-	endGameMessage.innerText = gameWon.player == Player1 ? "Les O ont gagné!" : "Les X ont gagné!";
+	endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : (secondPlayerName + " a gagné!");
 }
 
 
