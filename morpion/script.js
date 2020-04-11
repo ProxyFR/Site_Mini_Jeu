@@ -1,20 +1,6 @@
 // basic variables
 
 let origBoard;
-
-// Asking Player to enter there name
-
-const firstPlayerName = prompt("Entrer le prenom du premier joueur: ");
-const secondPlayerName = prompt("Entrer le prenom du deuxième joueur: ");
-class Player {
-	constructor(mark, name) {
-		this.mark = mark;
-		this.name = name;
-	}
-}
-const Player1 = new Player("O", firstPlayerName);
-const Player2 = new Player("X", secondPlayerName);
-console.log(Player1);
 const endGameMessage = document.querySelector(".text");
 const winConditions = [
  [0,1,2],
@@ -32,6 +18,19 @@ const cells = document.querySelectorAll(".cell");
 // starting the game + reset the grid
 
 startGame();
+
+// Asking Player to enter there name
+
+const firstPlayerName = prompt("Entrer le prenom du premier joueur: ");
+const secondPlayerName = prompt("Entrer le prenom du deuxième joueur: ");
+class Player {
+	constructor(mark, name) {
+		this.mark = mark;
+		this.name = name;
+	}
+}
+const Player1 = new Player("O", firstPlayerName);
+const Player2 = new Player("X", secondPlayerName);
 
 function startGame() {
  document.querySelector(".endgame").style.display = "none";
@@ -124,7 +123,16 @@ function gameEnd(gameWon) {
 		cells[i].removeEventListener('click', turnClick, false)
 	}
 	document.querySelector(".endgame").style.display = "block";
-	endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : (secondPlayerName + " a gagné!");
+
+	if (Player1.name === null && Player2.name === null) {
+		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : "Le Joueur 2 a gagné!";
+	} else if (Player1.name === null) {
+		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : (secondPlayerName + " a gagné!");		
+	}else if (Player2.name === null) {
+		endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : "Le Joueur 2 a gagné!";
+	}else {
+		endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : (secondPlayerName + " a gagné!");	
+	}	
 }
 
 
