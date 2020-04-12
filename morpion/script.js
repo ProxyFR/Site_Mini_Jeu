@@ -15,10 +15,6 @@ const winConditions = [
 
 const cells = document.querySelectorAll(".cell");
 
-// starting the game + reset the grid
-
-startGame();
-
 // Asking Player to enter there name
 
 const firstPlayerName = prompt("Entrer le prenom du premier joueur: ");
@@ -30,9 +26,32 @@ class Player {
 		this.name = name;
 	}
 }
+
 const Player1 = new Player("O", firstPlayerName);
 const Player2 = new Player("X", secondPlayerName);
-console.log(Player1);
+
+// Defining players score
+
+document.querySelector(".scorePlayer1").innerText = (firstPlayerName + ": ");
+document.querySelector(".scorePlayer2").innerText = (secondPlayerName + ": ");
+let scorePlayer1 = 0;
+let scorePlayer2 = 0;
+// Initialize score 
+document.querySelector(".numPlayer1").innerText = 0;
+document.querySelector(".numPlayer2").innerText = 0;
+
+// Reset scores when the button is presed
+
+function resetScore() {
+	document.querySelector(".numPlayer1").innerText = 0;
+	document.querySelector(".numPlayer2").innerText = 0;
+	scorePlayer1 = 0;
+	scorePlayer2 = 0;
+}
+
+// starting the game + reset the grid
+
+startGame();
 
 function startGame() {
  document.querySelector(".endgame").style.display = "none";
@@ -95,6 +114,7 @@ function checkWin (origBoard, player) {
 			break;
 		}
 	}
+	console.log(gameWon);
 	return gameWon;
 }
 
@@ -117,6 +137,7 @@ function checkDraw() {
 // End Game , Reset the grid and display the winner
 
 function gameEnd(gameWon) {
+	// Highlight all mark that makes the player win
 	for (let index of winConditions[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
 		gameWon.player == Player1.mark ? "rgba(255, 255, 255, 0.5)" : "rgba(217, 58, 44, 0.5)"; 
@@ -125,7 +146,7 @@ function gameEnd(gameWon) {
 		cells[i].removeEventListener('click', turnClick, false)
 	}
 	document.querySelector(".endgame").style.display = "block";
-
+	// Display Winner's name on the page
 	if ((Player1.name === null || Player1.name === "") && (Player2.name === null || Player2.name === "")) {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : "Le Joueur 2 a gagné!";
 	} else if (Player1.name === null || Player1.name === "") {
@@ -134,7 +155,15 @@ function gameEnd(gameWon) {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : "Le Joueur 2 a gagné!";
 	}else {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? (firstPlayerName + " a gagné!") : (secondPlayerName + " a gagné!");	
-	}	
+	}
+	// Adding score to the player who just won 
+	if (gameWon.player === "O") {
+		scorePlayer1 ++;
+		document.querySelector(".numPlayer1").innerText = scorePlayer1;
+	} else if (gameWon.player === "X") {
+		scorePlayer2 ++;
+		document.querySelector(".numPlayer2").innerText = scorePlayer2;
+	}
 }
 
 

@@ -21,7 +21,9 @@
 		</ul>
 	</nav>
 	<div class="corp">
+		<!-- Display the title of the game -->
 		<div class="title">TIC TAC TOE</div>
+		<!-- TIC TAC TOE grid -->
 		<table>
 			<tr>
 			 <td class="cell" id="0"></td>
@@ -39,11 +41,19 @@
 			 <td class="cell" id="8"></td>	
 			</tr>
 		</table>
-	</div>	
-		<div class="endgame">
-			<div class="text"></div>
-			<button onClick ="startGame()" id="restartButton">Rejouer</button>
+		<!-- Score display -->
+		<div class="score">
+			<p class="scorePlayer1">Player1</p>
+			<p class="numPlayer1"></p>
+			<p class="scorePlayer2">Player2</p>
+			<p class="numPlayer2"></p>
 		</div>
+		<button onClick ="resetScore()" id="resetButton">remise à zéro</button>
+		<!-- End game screen -->
+	<div class="endgame">
+		<div class="text"></div>
+		<button onClick ="startGame()" id="restartButton">Rejouer</button>
+	</div>
 		<script src="script.js"></script>
 	</body>
 </html>

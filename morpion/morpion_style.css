@@ -62,8 +62,8 @@ nav
 	font-size: 3rem;
 	color: white;
 	width: 100%;
+	height: 100px;
 	text-align: center;
-	margin-top: -200px;
 }
 
 
@@ -81,12 +81,93 @@ td {
 
 /* Making sure the table look like a tic tac toe grid */
 
-.endgame {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+table {
+	border-collapse: collapse;
 }
 
+table tr:first-child td {
+	border-top: 0;
+}
+
+table tr:last-child td {
+	border-bottom: 0;
+}
+
+table tr td:first-child {
+	border-left: 0;
+}
+
+table tr td:last-child {
+	border-right: 0;
+}
+/*Score board*/
+
+.score {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100px;
+	font-family: "Verdana", cursive, sans-serif;
+	font-size: 2rem;
+	color: white;
+}
+
+.numPlayer1 {
+	width: 15%;
+	text-align: left;
+}
+.numPlayer2{
+	width: 7%;
+	text-align: left;
+	color: #d93a2c;
+}
+.scorePlayer1 {
+	text-align: center;
+}
+.scorePlayer2 {
+	text-align: center;
+	color: #d93a2c;
+}
+
+#resetButton {
+	background-color: rgb(46, 194, 160);
+	border-radius: 10px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 2px solid  #264b5a;
+	font-size: 1.5rem;
+	color:  #264b5a;
+	margin-bottom: 15px;
+	cursor: pointer;
+	
+}
+
+#resetButton:hover {
+	background-color: #264b5a;
+	border-radius: 10px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 2px solid  rgb(46, 194, 160);
+	font-size: 1.5rem;
+	color:  rgb(46, 194, 160);
+	cursor: pointer;
+}
+
+/* styling the endgame screen */
+
+.endgame {
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0%;
+	position: absolute;
+	text-align: center;
+	font-size: 2em;
+  	background-color: rgba(36, 77, 87, 0.7);
+}
 
 .endgame button {
 	background-color: #264b5a;
@@ -112,44 +193,12 @@ td {
 	cursor: pointer;
 }
 
-table {
-	margin-top: -400px;
-	border-collapse: collapse;
-}
-
-table tr:first-child td {
-	border-top: 0;
-}
-
-table tr:last-child td {
-	border-bottom: 0;
-}
-
-table tr td:first-child {
-	border-left: 0;
-}
-
-table tr td:last-child {
-	border-right: 0;
-}
-
-/* styling the endgame screen */
-
-.endgame {
-	display: none;
-	width: 100%;
-	height: 100%;
-	top: 0px;
-	left: 0%;
-	position: absolute;
-	text-align: center;
-	font-size: 2em;
-  	background-color: rgba(36, 77, 87, 0.7);
-}
-
 .text {
-	padding-top: 230px;
-	padding-bottom: 30px;
 	font-size: 4rem;
 	color: white;
+	width: 100vw;
+	padding-bottom: 20px;
+	margin-top: 45vh;
+	margin-left: 50vw;
+	transform: translateX(-50%); 
 }
