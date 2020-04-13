@@ -29,6 +29,7 @@ class Player {
 
 const Player1 = new Player("O", firstPlayerName);
 const Player2 = new Player("X", secondPlayerName);
+let startingPlayer = Player1.mark;
 
 // Defining players score
 
@@ -47,6 +48,7 @@ function resetScore() {
 	document.querySelector(".numPlayer2").innerText = 0;
 	scorePlayer1 = 0;
 	scorePlayer2 = 0;
+	startGame();
 }
 
 // starting the game + reset the grid
@@ -61,33 +63,51 @@ function startGame() {
 	 cells[i].style.removeProperty("background-color");
 	 cells[i].addEventListener('click', turnClick, { once: true });
 	}
+	countOfelm();
 };
 
 // Defining which player is playing
 
 function turnClick(square) {
-	let x = countOfelm();
-	turn(square.target.id, x);
+	turn(square.target.id, countOfelm());
 }
 
 // Count the number of element placed by each players
 
 function countOfelm() {
-	let currentPlayer = '';
+	let currentPlayer = startingPlayer;
+	if (startingPlayer === Player1.mark) {
+		document.querySelector(".turn").innerText = ("C'est le tour de " + firstPlayerName);
+	} else {
+		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);	
+	}
 	let oFiled = origBoard.reduce((a, e, i) =>
 		(e === Player1.mark) ? a.concat(i) : a, []);
 	let xFiled = origBoard.reduce((a, e, i) =>
 		(e === Player2.mark) ? a.concat(i) : a, []);
 	let numberOFO = oFiled["length"];
-	let numberOFX = xFiled["length"];	
-	if (numberOFO > numberOFX) { 	// Changing player turns
-		currentPlayer = Player2.mark;
+	let numberOFX = xFiled["length"];
+	// currentPlayer = Player2.mark
+	if (numberOFX === 0 && numberOFO === 0) { 	// Changing player turns
+		currentPlayer = startingPlayer;
 		return currentPlayer;
-	} else if (numberOFO === numberOFX){
+	} else if (numberOFO > numberOFX){
+		currentPlayer = Player2.mark;
+		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);
+		return currentPlayer;
+	} else if (numberOFX === numberOFO && startingPlayer === Player1.mark){
 		currentPlayer = Player1.mark;
+		document.querySelector(".turn").innerText = ("C'est le tour de " + firstPlayerName);
+		return currentPlayer;
+	} else if (numberOFX > numberOFO){
+		currentPlayer = Player1.mark;
+		document.querySelector(".turn").innerText = ("C'est le tour de " + firstPlayerName);
+		return currentPlayer;
+	} else if (numberOFX === numberOFO && startingPlayer === Player2.mark){
+		currentPlayer = Player2.mark;
+		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);
 		return currentPlayer;
 	}
-	
 }
 
 // Drawing the right symbol acording to the player turn
@@ -113,8 +133,7 @@ function checkWin (origBoard, player) {
 			gameWon = {index: index, player: player}
 			break;
 		}
-	}
-	console.log(gameWon);
+	};
 	return gameWon;
 }
 
@@ -146,6 +165,7 @@ function gameEnd(gameWon) {
 		cells[i].removeEventListener('click', turnClick, false)
 	}
 	document.querySelector(".endgame").style.display = "block";
+	document.querySelector(".turn").innerText = "";
 	// Display Winner's name on the page
 	if ((Player1.name === null || Player1.name === "") && (Player2.name === null || Player2.name === "")) {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : "Le Joueur 2 a gagné!";
@@ -163,6 +183,11 @@ function gameEnd(gameWon) {
 	} else if (gameWon.player === "X") {
 		scorePlayer2 ++;
 		document.querySelector(".numPlayer2").innerText = scorePlayer2;
+	}
+	if (startingPlayer === Player1.mark) {
+		startingPlayer = Player2.mark;
+	} else {
+		startingPlayer = Player1.mark;
 	}
 }
 
