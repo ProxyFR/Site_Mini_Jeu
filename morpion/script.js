@@ -33,11 +33,22 @@ let startingPlayer = Player1.mark;
 
 // Defining players score
 
-document.querySelector(".scorePlayer1").innerText = (firstPlayerName + ": ");
-document.querySelector(".scorePlayer2").innerText = (secondPlayerName + ": ");
+if ((Player1.name === null || Player1.name === "")) {
+		document.querySelector(".scorePlayer1").innerText = "Joueur 1: ";
+	} else {
+		document.querySelector(".scorePlayer1").innerText = (firstPlayerName + ": ");
+	}
+if ((Player2.name === null || Player2.name === "")) {
+		document.querySelector(".scorePlayer2").innerText = "Joueur 2: ";
+	} else {
+		document.querySelector(".scorePlayer2").innerText = (secondPlayerName + ": ");
+	}
+
 let scorePlayer1 = 0;
 let scorePlayer2 = 0;
+
 // Initialize score 
+
 document.querySelector(".numPlayer1").innerText = 0;
 document.querySelector(".numPlayer2").innerText = 0;
 
@@ -77,35 +88,60 @@ function turnClick(square) {
 function countOfelm() {
 	let currentPlayer = startingPlayer;
 	if (startingPlayer === Player1.mark) {
+		if ((Player1.name === null || Player1.name === "")) {
+		document.querySelector(".turn").innerText = "C'est le tour du Joueur 1";
+		} else {
 		document.querySelector(".turn").innerText = ("C'est le tour de " + firstPlayerName);
+		}
 	} else {
+		if ((Player2.name === null || Player2.name === "")) {
+		document.querySelector(".turn").innerText = "C'est le tour du Joueur 2";
+		} else {
 		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);	
+		}
 	}
+	// Counting number of marks for each players
 	let oFiled = origBoard.reduce((a, e, i) =>
 		(e === Player1.mark) ? a.concat(i) : a, []);
 	let xFiled = origBoard.reduce((a, e, i) =>
 		(e === Player2.mark) ? a.concat(i) : a, []);
 	let numberOFO = oFiled["length"];
 	let numberOFX = xFiled["length"];
-	// currentPlayer = Player2.mark
-	if (numberOFX === 0 && numberOFO === 0) { 	// Changing player turns
+	// Changing player turns
+	if (numberOFX === 0 && numberOFO === 0) {
 		currentPlayer = startingPlayer;
 		return currentPlayer;
 	} else if (numberOFO > numberOFX){
 		currentPlayer = Player2.mark;
-		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);
+		if ((Player2.name === null || Player2.name === "")) {
+		document.querySelector(".turn").innerText = "C'est le tour du Joueur 2";
+		} else {
+		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);	
+		}
 		return currentPlayer;
 	} else if (numberOFX === numberOFO && startingPlayer === Player1.mark){
 		currentPlayer = Player1.mark;
+		if ((Player1.name === null || Player1.name === "")) {
+		document.querySelector(".turn").innerText = "C'est le tour du Joueur 1";
+		} else {
 		document.querySelector(".turn").innerText = ("C'est le tour de " + firstPlayerName);
+		}
 		return currentPlayer;
 	} else if (numberOFX > numberOFO){
 		currentPlayer = Player1.mark;
+		if ((Player1.name === null || Player1.name === "")) {
+		document.querySelector(".turn").innerText = "C'est le tour du Joueur 1";
+		} else {
 		document.querySelector(".turn").innerText = ("C'est le tour de " + firstPlayerName);
+		}
 		return currentPlayer;
 	} else if (numberOFX === numberOFO && startingPlayer === Player2.mark){
 		currentPlayer = Player2.mark;
-		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);
+		if ((Player2.name === null || Player2.name === "")) {
+		document.querySelector(".turn").innerText = "C'est le tour du Joueur 2";
+		} else {
+		document.querySelector(".turn").innerText = ("C'est le tour de " + secondPlayerName);	
+		}
 		return currentPlayer;
 	}
 }
@@ -145,7 +181,8 @@ function checkDraw() {
 		(e === Player1.mark) ? a.concat(i) : a, []);
 	let xFiled = origBoard.reduce((a, e, i) =>
 		(e === Player2.mark) ? a.concat(i) : a, []);
-	let allPlays = oFiled.concat(xFiled);		// If every cell is full  => Draww 
+	// If every cell is full  => Draww 
+	let allPlays = oFiled.concat(xFiled);
 	let numberOfTurnPlayed = allPlays.length;
 	if (numberOfTurnPlayed === 9) {
 		document.querySelector(".endgame").style.display = "block";
@@ -164,9 +201,10 @@ function gameEnd(gameWon) {
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', turnClick, false)
 	}
+	// Display the "Eng Game" Screen
 	document.querySelector(".endgame").style.display = "block";
 	document.querySelector(".turn").innerText = "";
-	// Display Winner's name on the page
+	// Display Winner's name on the "Eng Game" Screen
 	if ((Player1.name === null || Player1.name === "") && (Player2.name === null || Player2.name === "")) {
 		endGameMessage.innerText = gameWon.player == Player1.mark ? "Le Joueur 1 a gagné!" : "Le Joueur 2 a gagné!";
 	} else if (Player1.name === null || Player1.name === "") {
@@ -184,6 +222,7 @@ function gameEnd(gameWon) {
 		scorePlayer2 ++;
 		document.querySelector(".numPlayer2").innerText = scorePlayer2;
 	}
+	// Switching the starting player for the next game
 	if (startingPlayer === Player1.mark) {
 		startingPlayer = Player2.mark;
 	} else {
