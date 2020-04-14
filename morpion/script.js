@@ -30,6 +30,7 @@ class Player {
 const Player1 = new Player("O", firstPlayerName);
 const Player2 = new Player("X", secondPlayerName);
 let startingPlayer = Player1.mark;
+console.log(startingPlayer);
 
 // Defining players score
 
@@ -87,6 +88,7 @@ function turnClick(square) {
 
 function countOfelm() {
 	let currentPlayer = startingPlayer;
+	console.log(startingPlayer);
 	if (startingPlayer === Player1.mark) {
 		if ((Player1.name === null || Player1.name === "")) {
 		document.querySelector(".turn").innerText = "C'est le tour du Joueur 1";
@@ -110,6 +112,7 @@ function countOfelm() {
 	// Changing player turns
 	if (numberOFX === 0 && numberOFO === 0) {
 		currentPlayer = startingPlayer;
+		console.log(startingPlayer);
 		return currentPlayer;
 	} else if (numberOFO > numberOFX){
 		currentPlayer = Player2.mark;
@@ -187,7 +190,12 @@ function checkDraw() {
 	if (numberOfTurnPlayed === 9) {
 		document.querySelector(".endgame").style.display = "block";
 		endGameMessage.innerText = "C'est une égalité !"
+		if (startingPlayer === Player1.mark) {
+			startingPlayer = Player2.mark;
+		} else {
+		startingPlayer = Player1.mark;
 		}
+	}	
 }
 
 // End Game , Reset the grid and display the winner
