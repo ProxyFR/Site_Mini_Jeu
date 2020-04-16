@@ -1,0 +1,88 @@
+*{
+	margin: 0px;
+}
+
+body {
+	display: flex;
+}
+
+#score-container {
+	width: 30vw;
+	height: 100vh;
+	background: url('img/back.jpg');
+}
+
+#game-container {
+	width: 70vw;
+	height: 100vh;
+	background: url('img/back.jpg');
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.card {
+	position: absolute;
+	height: 200px;
+	width: 140px;
+	border-radius: 8px;
+	background-color: white;
+	box-shadow: 11px 10px 9px -5px rgba(0,0,0,0.34);
+}
+
+.game-zone {
+	height: 200px;
+	width: 140px;
+}
+
+#deck1 .card.visible {
+	transform: translateY(270px);
+}
+
+#deck2 .card.visible {
+	transform: translateY(-270px);
+}
+
+
+.top-card {
+	position: relative;
+	height: 200px;
+	width: 140px;
+	border-radius: 8px;
+	background-color: white;
+	box-shadow: 11px 10px 9px -5px rgba(0,0,0,0.34);
+}
+
+.top-card-back {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.card-front {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-back {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+.image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
