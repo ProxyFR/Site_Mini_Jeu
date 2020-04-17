@@ -16,6 +16,7 @@ body {
 	width: 70vw;
 	height: 100vh;
 	background: url('img/back.jpg');
+	padding: 50px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -38,11 +39,13 @@ body {
 }
 
 #deck1 .card.visible {
-	transform: translateY(270px);
+	transform: translateY(215px);
+	transition: .3s ease-in-out ;
 }
 
 #deck2 .card.visible {
-	transform: translateY(-270px);
+	transform: translateY(-215px);
+	transition: .3s ease-in-out ;
 }
 
 
