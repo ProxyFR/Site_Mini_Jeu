@@ -6,17 +6,10 @@ body {
 	display: flex;
 }
 
-#score-container {
-	width: 30vw;
-	height: 100vh;
-	background: url('img/back.jpg');
-}
-
 #game-container {
-	width: 70vw;
+	width: 100vw;
 	height: 100vh;
 	background: url('img/back.jpg');
-	padding: 50px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -39,15 +32,9 @@ body {
 }
 
 #deck1 .card.visible {
-	transform: translateY(215px);
-	transition: .3s ease-in-out ;
+	transform: translateY(240px);
+	transition: .5s ease-in-out ;
 }
-
-#deck2 .card.visible {
-	transform: translateY(-215px);
-	transition: .3s ease-in-out ;
-}
-
 
 .top-card {
 	position: relative;
