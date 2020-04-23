@@ -43,7 +43,7 @@ class Deck {
 	// Create a methode that deal x amount of cards
 	deal() {
 		let dealtCard = [];
-		while(dealtCard.length < 1){
+		while(dealtCard.length < 20){
 			dealtCard.push(this.deck.pop());
 		}
 		return dealtCard;
@@ -53,9 +53,50 @@ class Deck {
 let deck = new Deck();
 deck.generate();
 deck.shuffle();
-let distribuer = deck.deal();
+console.log(deck.shuffle());
+let dealt = deck.deal();
+let index = 0;
 
-let one = distribuer[0].name;
-let IdOne = document.getElementById(one);
-IdOne.classList.add("visible");
+function showcard(){
+	let cardName = dealt[index].name;
+	let cardID = document.getElementById(cardName);
+	cardID.classList.add("visible" + index);
+	index++;
+}
+
+function reveal(){
+	let hiddenCard = dealt[0].name;
+	let hiddenCardId = document.getElementById(hiddenCard);
+	hiddenCardId.classList.add("reveal");
+}
+
+function clean(){
+	let visible0 = document.getElementsByClassName("visible0");
+	let visible1 = document.getElementsByClassName("visible1");
+	let visible2 = document.getElementsByClassName("visible2");
+	let visible3 = document.getElementsByClassName("visible3");
+	let reveal = document.getElementsByClassName("reveal");
+	if (visible0.length != 0 && visible0){
+		visible0[0].classList.remove("visible0");
+		index = 0;
+	}
+	if (visible1.length != 0 && visible1){
+		visible1[0].classList.remove("visible1");
+		index = 0;
+	}
+	if (visible2.length != 0 && visible2){
+		visible2[0].classList.remove("visible2");
+		index = 0;
+	}
+	if (visible3.length != 0 && visible3){
+		visible3[0].classList.remove("visible3");
+		index = 0;
+	}
+	if (reveal.length != 0 && reveal){
+		reveal[0].classList.remove("reveal");
+		index = 0;
+	}
+}
+
+
 

@@ -11,10 +11,16 @@ body {
 	height: 100vh;
 	background: url('img/back.jpg');
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
+}
+
+.button {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .card {
@@ -24,16 +30,6 @@ body {
 	border-radius: 8px;
 	background-color: white;
 	box-shadow: 11px 10px 9px -5px rgba(0,0,0,0.34);
-}
-
-.game-zone {
-	height: 200px;
-	width: 140px;
-}
-
-#deck1 .card.visible {
-	transform: translateY(240px);
-	transition: .5s ease-in-out ;
 }
 
 .top-card {
@@ -73,6 +69,45 @@ body {
 
 .image {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
+}
+
+#deck1 .card.visible0.reveal .card-back {
+	display: none;
+}
+
+#deck1 .card.visible0.reveal .card-front {
+	display: inline-flex;
+}
+
+#deck1 .card.visible0 .card-front {
+	display: none;
+}
+
+#deck1 .card.visible0 .card-back {
+	display: inline-flex;
+}
+
+#deck1 .card.visible0 {
+	transform: translate(160px, 0px);
+	transition: .5s ease-in-out ;
+	z-index: 1;
+}
+
+#deck1 .card.visible1 {
+	transform: translate(0px, 220px);
+	transition: .5s ease-in-out ;
+	z-index: 2;
+}
+
+#deck1 .card.visible2 {
+	transform: translate(200px, 0px);
+	transition: .5s ease-in-out ;
+	z-index: 3;
+}
+
+#deck1 .card.visible3 {
+	transform: translate(40px, 220px);
+	transition: .5s ease-in-out ;
+	z-index: 4;
 }
