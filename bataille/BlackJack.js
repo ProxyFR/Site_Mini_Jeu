@@ -42,20 +42,20 @@ class Deck {
 	}
 	// Create a methode that deal x amount of cards
 	deal() {
-		let dealtCard = [];
-		while(dealtCard.length < 1){
-			dealtCard.push(this.deck.pop());
+		let playerHand = [];
+		while(playerHand.length < 1){
+			playerHand.push(this.deck.pop());
 		}
-		return dealtCard;
+		return playerHand;
 	}
 }
 
 let deck = new Deck();
 deck.generate();
 deck.shuffle();
-let distribuer = deck.deal();
+let dealtCard = deck.deal();
 
-let one = distribuer[0].name;
-let IdOne = document.getElementById(one);
-IdOne.classList.add("visible");
+let firstCard = dealtCard[0].name;
+let idFirstCard = document.getElementById(firstCard);
+idFirstCard.classList.add("visible");
 
