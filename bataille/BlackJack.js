@@ -42,17 +42,18 @@ class Deck {
 	}
 	// Create a methode that deal x amount of cards
 	deal() {
-		let playerHand = [];
-		while(playerHand.length < 20){
-			playerHand.push(this.deck.pop());
+		let dealtCard = [];
+		while(dealtCard.length < 20){
+			dealtCard.push(this.deck.pop());
 		}
-		return playerHand;
+		return dealtCard;
 	}
 }
 
 let deck = new Deck();
 deck.generate();
 deck.shuffle();
+console.log(deck.shuffle());
 let dealt = deck.deal();
 let index = 0;
 
