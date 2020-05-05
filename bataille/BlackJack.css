@@ -2,25 +2,119 @@
 	margin: 0px;
 }
 
-body {
+/* Menu de Navigation */
+
+nav
+{
+	background-color: #2c3e50;
 	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	font-family: 'Poppins', sans-serif;
 }
+
+.logo
+{ 
+	color: #f6f1eb;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 1.1em;
+}
+
+.nav-links
+{
+	display: flex;
+	width: 40%;
+	justify-content: space-around;
+	list-style-type: none;
+}
+
+.logo a
+{
+	color: #f6f1eb;
+	text-decoration: none;
+}
+
+.nav-links a
+{
+	color: #f6f1eb;
+	text-decoration: none;
+}
+
+/* Blackjack */
 
 #game-container {
 	width: 100vw;
-	height: 100vh;
+	height: 92vh;
 	background: url('img/back.jpg');
 	display: flex;
-	flex-direction: row;
+	/*flex-direction: row;*/
 	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: center;
+	/*align-items: center;*/
+}
+
+.dealerHand {
+	padding-top: 80px;
+	width: 100%;
+	height: 50px;
+	color: white;
+	font-family: "Verdana", cursive, sans-serif;
+	font-size: 2rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+#deck1 {
+	padding-bottom: 100px;
+	margin-top: -150px;
+	margin-left: -139px;
+}
+
+.test {
+	width: 100%;
+}
+
+.playerHand {
+	padding-bottom: 50px;
+	width: 100%;
+	height: 50px;
+	color: white;
+	font-family: "Verdana", cursive, sans-serif;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.action {
+	width: 100%;
+	height: 50px;
+	color: white;
+	font-family: "Verdana", cursive, sans-serif;
+	font-size: 2.5rem;
+	text-align: center;
 }
 
 .button {
 	width: 100%;
+	height: 50px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
+}
+
+button {
+	background-color: rgba(0, 0, 0,0);
+	border-radius: 10px;
+	margin: 50px 20px 20px 20px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 2px solid  white;
+	font-size: 1.5rem;
+	color:  white;
+	cursor: pointer;
 }
 
 .card {

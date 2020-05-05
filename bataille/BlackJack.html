@@ -5,7 +5,25 @@
 	<link rel="stylesheet" type="text/css" href="BlackJack.css">
 </head>
 <body>
+	<!-- Menu de navigation -->
+	<nav>
+		<div class="logo">
+			<a href="../index.html"><h3>Mini Jeux</h3></a>
+		</div>
+		<ul class="nav-links">
+			<li><a href="../morpion/morpion.html">Morpion</a></li>
+			<li><a href="Blackjack.html">Blackjack</a></li>
+			<li><a href="#">Jeu 3</a></li>
+			<li><a href="#">Jeu 4</a></li>
+		</ul>
+	</nav>
+
+	<!-- Blackjack -->
+
 	<div id="game-container">
+		<div class="dealerHand">
+			<p>Dealer Hand value:<p class="dealerHandValue"></p></p>
+		</div>
 		<div id="deck1">
 			<!-- Hoert cards -->
 			<div class="card" id="AH">
@@ -433,12 +451,19 @@
 				</div>
 			</div>	
 		</div>
-		<div class="button">
-			<button onclick="showcard()">show</button>
-			<button onclick="reveal()">reveal</button>
-			<button onclick="clean()">clean</button>
+		<div class="test">
+			<div class="playerHand">
+			<p>Player hand value:<p class="playerHandValue"></p></p>
+			</div>
+			<div class="button">
+				<p class="action">What do you want to do ?</p>
+				<button onclick="showCard()">Hit</button>
+				<button onclick="#">Stand</button>
+				<button onclick="#">clean</button>
+			</div>
+		</div>	
 		</div>
-		</div>
+		
 	</div>
 	<script type="text/javascript" src="BlackJack.js"></script>
 </body>

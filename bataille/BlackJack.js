@@ -1,5 +1,7 @@
 let suits = ["H", "D", "C", "S"];
 let values = [2,3,4,5,6,7,8,9,10,"J", "Q", "K", "A"];
+let index = 0;
+let autoDeal;
 // New class to create all cards
 class Card {
 	constructor(value, suit) {
@@ -8,7 +10,9 @@ class Card {
 		this.name = value + suit;
 	}
 }
+
 // New class to create a deck shuffle it and deal cards
+
 class Deck {
 	constructor() {
 		this.deck = [];
@@ -49,20 +53,42 @@ class Deck {
 		return dealtCard;
 	}
 }
+
+let deck = new Deck();
+deck.generate();
+deck.shuffle();
+let dealt = deck.deal();
+
+// function that auto deal 4 cards at the begining of the game
+
+function firstDeal(){
+	autoDeal = setInterval(showCard, 500);
+}
+
 // function that add class to the card to show them on screen
-function showcard(){
+
+function showCard(){
+	// console.log(index);
 	let cardName = dealt[index].name;
 	let cardID = document.getElementById(cardName);
 	cardID.classList.add("visible" + index);
 	index++;
+	// Stop the first Deal after 4 cards are dealt
+	if (index > 3) {
+		clearInterval(autoDeal);
+	}
 }
+
 // function that reveal the dealer hidden card
+
 function reveal(){
 	let hiddenCard = dealt[0].name;
 	let hiddenCardId = document.getElementById(hiddenCard);
 	hiddenCardId.classList.add("reveal");
 }
+
 // function that reset every class modification on card div
+
 function clean(){
 	let visible0 = document.getElementsByClassName("visible0");
 	let visible1 = document.getElementsByClassName("visible1");
@@ -90,13 +116,10 @@ function clean(){
 		index = 0;
 	}
 }
+startGame();
 
-let deck = new Deck();
-deck.generate();
-deck.shuffle();
-console.log(deck.shuffle());
-let dealt = deck.deal();
-let index = 0;
+// function that start the game
 
-
-
+function startGame() {
+	firstDeal();
+}
