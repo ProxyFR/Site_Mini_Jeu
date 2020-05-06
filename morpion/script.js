@@ -154,7 +154,7 @@ function countOfelm() {
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
-	document.getElementById(squareId).style.color = player == Player1.mark ? "white" : "#d93a2c";
+	document.getElementById(squareId).style.color = player == Player1.mark ? "#2ecc71" : "#e74c3c";
 	countOfelm();
 	let gameWon = checkWin(origBoard, player);
 	let gameDraw = checkDraw();

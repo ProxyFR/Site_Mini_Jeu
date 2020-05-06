@@ -48,7 +48,7 @@ nav
 /* Morpion */
 
 .corp {
-	background-color: rgb(46, 194, 160);
+	background-color: #ecf0f1;
 	height: 92vh;
 	display: flex;
 	flex-direction: row;
@@ -60,15 +60,16 @@ nav
 .title{
 	font-family: "Verdana", cursive, sans-serif;
 	font-size: 3rem;
-	color: white;
+	color: #34495e;
 	width: 100%;
 	height: 100px;
 	text-align: center;
 }
 
 .turn {
+	font-family: "Verdana", cursive, sans-serif;
 	font-size: 3rem;
-	color: white;
+	color: #34495e;
 	width: 100%;
 	margin-top: -20px;
 	text-align: center;
@@ -76,7 +77,7 @@ nav
 
 td {
 	color: white;
-	border: 4px solid #264b5a;
+	border: 4px solid #34495e;
 	width: 100px;
 	height: 100px;
 	text-align: center;
@@ -122,49 +123,52 @@ table tr td:last-child {
 .numPlayer1 {
 	width: 15%;
 	text-align: left;
+	color: #2ecc71;
 }
 .numPlayer2{
 	width: 7%;
 	text-align: left;
-	color: #d93a2c;
+	color: #e74c3c;
 }
 .scorePlayer1 {
 	text-align: center;
+	color: #2ecc71;
 }
 .scorePlayer2 {
 	text-align: center;
-	color: #d93a2c;
+	color: #e74c3c;
 }
 
 #resetButton {
-	background-color: rgb(46, 194, 160);
+	background-color: #ecf0f1;
 	border-radius: 10px;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	border: 2px solid  #264b5a;
+	border: 2px solid  #3498db;
 	font-size: 1.5rem;
-	color:  #264b5a;
+	color:  #3498db;
 	margin-bottom: 15px;
 	cursor: pointer;
 	
 }
 
 #resetButton:hover {
-	background-color: #264b5a;
+	background-color: #3498db;
 	border-radius: 10px;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	border: 2px solid  rgb(46, 194, 160);
+	border: 2px solid  #ecf0f1;
 	font-size: 1.5rem;
-	color:  rgb(46, 194, 160);
+	color:  #ecf0f1;
 	cursor: pointer;
 }
 
 /* styling the endgame screen */
 
 .endgame {
+	font-family: "Verdana", cursive, sans-serif;
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -173,30 +177,29 @@ table tr td:last-child {
 	position: absolute;
 	text-align: center;
 	font-size: 2em;
-  	background-color: rgba(36, 77, 87, 0.7);
+  	background-color: rgba(52, 73, 94, 0.5);
 }
 
 .endgame button {
-	background-color: #264b5a;
+	background-color: #ecf0f1;
 	border-radius: 10px;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	border: 2px solid  rgb(46, 194, 160);
+	border: 2px solid  #3498db;
 	font-size: 1.5rem;
-	color:  rgb(46, 194, 160);
+	color:  #3498db;
 	cursor: pointer;
 }
 
 .endgame button:hover {
-	background-color: rgb(46, 194, 160);
+	background-color: #3498db;
 	border-radius: 10px;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	border: 2px solid  #264b5a;
 	font-size: 1.5rem;
-	color:  #264b5a;
+	color:  #ecf0f1;
 	cursor: pointer;
 }
 
