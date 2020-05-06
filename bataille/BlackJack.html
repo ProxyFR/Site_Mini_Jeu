@@ -451,15 +451,20 @@
 				</div>
 			</div>	
 		</div>
-		<div class="test">
+		<!-- Player buttons -->
+		<div class="playerButtons">
 			<div class="playerHand">
 			<p>Player hand value:<p class="playerHandValue"></p></p>
 			</div>
 			<div class="button">
 				<p class="action">What do you want to do ?</p>
-				<button onclick="showCard()">Hit</button>
-				<button onclick="#">Stand</button>
-				<button onclick="#">clean</button>
+				<button onclick="hit()">Hit</button>
+				<button onclick="stand()">Stand</button>
+			</div>
+			<!-- End game screen -->
+			<div class="endgame">
+				<div class="text"></div>
+				<button onClick ="startGame()" id="restartButton">Rejouer</button>
 			</div>
 		</div>	
 		</div>

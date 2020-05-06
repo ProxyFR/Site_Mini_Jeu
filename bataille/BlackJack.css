@@ -73,7 +73,7 @@ nav
 	margin-left: -139px;
 }
 
-.test {
+.playerButtons {
 	width: 100%;
 }
 
@@ -84,7 +84,8 @@ nav
 	color: white;
 	font-family: "Verdana", cursive, sans-serif;
 	font-size: 2rem;
-	text-align: center;
+	display: flex;
+	justify-content: center;
 }
 
 .action {
@@ -143,7 +144,6 @@ button {
 	justify-content: center;
 }
 
-
 .card-front {
 	width: 100%;
 	height: 100%;
@@ -165,6 +165,8 @@ button {
 	display: block;
 	margin: auto;
 }
+
+/*Add Transitions for cards*/
 
 #deck1 .card.visible0.reveal .card-back {
 	display: none;
@@ -204,4 +206,101 @@ button {
 	transform: translate(40px, 220px);
 	transition: .5s ease-in-out ;
 	z-index: 4;
+}
+
+#deck1 .card.visible4 {
+	transform: translate(80px, 220px);
+	transition: .5s ease-in-out ;
+	z-index: 5;
+}
+
+#deck1 .card.visible5 {
+	transform: translate(120px, 220px);
+	transition: .5s ease-in-out ;
+	z-index: 6;
+}
+
+#deck1 .card.visible6 {
+	transform: translate(160px, 220px);
+	transition: .5s ease-in-out ;
+	z-index: 7;
+}
+
+#deck1 .card.visible7 {
+	transform: translate(200px, 220px);
+	transition: .5s ease-in-out ;
+	z-index: 8;
+}
+
+#deck1 .card.dealer0 {
+	transform: translate(240px, 0px);
+	transition: .5s ease-in-out ;
+	z-index: 9;
+}
+
+#deck1 .card.dealer1 {
+	transform: translate(280px, 0px);
+	transition: .5s ease-in-out ;
+	z-index: 10;
+}
+
+#deck1 .card.dealer2 {
+	transform: translate(320px, 0px);
+	transition: .5s ease-in-out ;
+	z-index: 11;
+}
+
+#deck1 .card.dealer3 {
+	transform: translate(360px, 0px);
+	transition: .5s ease-in-out ;
+	z-index: 12;
+}
+
+/*display end game screen*/
+
+.endgame {
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0%;
+	position: absolute;
+	text-align: center;
+	font-size: 2em;
+  	background-color: rgba(36, 77, 87, 0.7);
+  	z-index: 50;
+}
+
+.endgame button {
+	background-color: #264b5a;
+	border-radius: 10px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 2px solid  rgb(46, 194, 160);
+	font-size: 1.5rem;
+	color:  rgb(46, 194, 160);
+	cursor: pointer;
+}
+
+.endgame button:hover {
+	background-color: rgb(46, 194, 160);
+	border-radius: 10px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 2px solid  #264b5a;
+	font-size: 1.5rem;
+	color:  #264b5a;
+	cursor: pointer;
+}
+
+.text {
+	font-size: 4rem;
+	color: white;
+	width: 100vw;
+	padding-bottom: 20px;
+	margin-top: 45vh;
+	margin-left: 50vw;
+	transform: translateX(-50%); 
 }
