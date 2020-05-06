@@ -7,6 +7,7 @@ let playerCards = [];
 let playerHandValue = 0;
 let dealerCards = [];
 let dealerHandValue = 0;
+let display;
 
 // New class to create all cards
 class Card {
@@ -47,6 +48,7 @@ class Deck {
     		temporaryValue = this.deck[currentIndex];
    			this.deck[currentIndex] = this.deck[randomIndex];
    			this.deck[randomIndex] = temporaryValue;
+   			console.log(this.deck);
   		}
 		return this.deck;
 	}
@@ -71,10 +73,13 @@ function startGame() {
 	clean();
 	deck.generate();
 	deck.shuffle();
+	dealt = [];
 	dealt = deck.deal();
+	console.log(dealt);
 	playerCards = [];
 	dealerCards = [];
 	document.querySelector(".endgame").style.display = "none";
+	index = 0;
 	firstDeal();
 	playerCards.push((dealt[1].value), (dealt[3].value));
 	dealerCards.push((dealt[2].value));
@@ -95,6 +100,7 @@ function firstDeal(){
 function showCard(){
 	let cardName = dealt[index].name;
 	let cardID = document.getElementById(cardName);
+	console.log(cardName);
 	cardID.classList.add("visible" + index);
 	index ++;
 	// Stop the first Deal after 4 cards are dealt
@@ -112,22 +118,28 @@ function reveal(){
 }
 
 function displayDealerCards(){
-	test = setInterval(dealerhit, 500);
+	display = setInterval(dealerhit, 500);
 }
 
 function dealerhit(){
 	if (dealerHandValue < 17){
-		let cardName = dealt[index].name;
-		let cardID = document.getElementById(cardName);
-		cardID.classList.add("dealer" + dealerIndex);
+		let dealercardName = dealt[index].name;
+		let dealercardID = document.getElementById(dealercardName);
+		console.log(dealercardName);
+		dealercardID.classList.add("dealer" + dealerIndex);
 		dealerCards.push((dealt[index].value))
 		dealerHandAddValue();
 		index ++;
 		dealerIndex ++;
-	} if (dealerHandValue >= 17) {
-		clearInterval(test);
+	} else if (dealerHandValue >= 17) {
+		clearInterval(display);
 		dealerIndex = 0;
 		compareHands();
+	} else if (dealerHandValue > 21) {
+		clearInterval(display);
+		dealerIndex = 0;
+		document.querySelector(".text").innerText = "You lose !";
+		document.querySelector(".endgame").style.display = "block";
 	}
 }
 
@@ -243,14 +255,19 @@ function dealerHandAddValue() {
 }
 
 function compareHands() {
-	if (dealerHandValue <= 21 && dealerHandValue > playerHandValue) {
+	if (playerHandValue > 21) {
+		document.querySelector(".endgame").style.display = "block";
+	} else if (dealerHandValue <= 21 && dealerHandValue > playerHandValue) {
 		document.querySelector(".text").innerText = "You lose !";
 		document.querySelector(".endgame").style.display = "block";
-	} else if (dealerHandValue <= 21 && dealerHandValue < playerHandValue) {
+	} else if (dealerHandValue <= 21 && playerHandValue <= 21 && dealerHandValue < playerHandValue) {
 		document.querySelector(".text").innerText = "You Win !";
 		document.querySelector(".endgame").style.display = "block";
+	} else if (dealerHandValue <= 21 && playerHandValue <= 21 && dealerHandValue > playerHandValue) {
+		document.querySelector(".text").innerText = "You Lose !";
+		document.querySelector(".endgame").style.display = "block";
 	} else if (dealerHandValue == playerHandValue) {
-		document.querySelector(".text").innerText = "It's a tie";
+		document.querySelector(".text").innerText = "You Lose !";
 		document.querySelector(".endgame").style.display = "block";
 	}else if (dealerHandValue > 21) {
 		document.querySelector(".text").innerText = "You Win !";
@@ -261,9 +278,8 @@ function compareHands() {
 
 function checkLose() {
 	if (playerHandValue > 21) {
-		document.querySelector(".action").innerText = "You lose !";
-		// Display the "Eng Game" Screen
 		document.querySelector(".endgame").style.display = "block";
+		document.querySelector(".text").innerText = "You lose !";
 		stand();
 	}
 }
