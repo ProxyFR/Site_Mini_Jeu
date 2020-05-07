@@ -8,6 +8,7 @@ let playerHandValue = 0;
 let dealerCards = [];
 let dealerHandValue = 0;
 let display;
+let dealt;
 
 // New class to create all cards
 class Card {
@@ -34,7 +35,7 @@ class Deck {
 		return this.deck;	
 	}
 	// Create a methode that shuffle the new deck
-	shuffle() {
+	shuffle() { 
  		var currentIndex = this.deck.length, temporaryValue, randomIndex;
 
   		// While there remain elements to shuffle...
@@ -48,7 +49,6 @@ class Deck {
     		temporaryValue = this.deck[currentIndex];
    			this.deck[currentIndex] = this.deck[randomIndex];
    			this.deck[randomIndex] = temporaryValue;
-   			console.log(this.deck);
   		}
 		return this.deck;
 	}
@@ -62,20 +62,15 @@ class Deck {
 	}
 }
 
-let deck = new Deck();
-deck.generate();
-deck.shuffle();
-let dealt = deck.deal();
-
 // function that start the game
 
 function startGame() {
 	clean();
+	let deck = new Deck();
 	deck.generate();
 	deck.shuffle();
 	dealt = [];
 	dealt = deck.deal();
-	console.log(dealt);
 	playerCards = [];
 	dealerCards = [];
 	document.querySelector(".endgame").style.display = "none";
@@ -85,6 +80,14 @@ function startGame() {
 	dealerCards.push((dealt[2].value));
 	dealerHandAddValue();
 	playerHandAddValue();
+	// checking for blackjack
+	setTimeout(function checkBlackjack(){
+		if (playerHandValue === 21) {
+		document.querySelector(".text").innerText = "Blackjack !";
+		document.querySelector(".endgame").style.display = "block";
+		}
+	}, 3000);
+	
 }
 
 startGame();
@@ -100,7 +103,6 @@ function firstDeal(){
 function showCard(){
 	let cardName = dealt[index].name;
 	let cardID = document.getElementById(cardName);
-	console.log(cardName);
 	cardID.classList.add("visible" + index);
 	index ++;
 	// Stop the first Deal after 4 cards are dealt
@@ -125,7 +127,6 @@ function dealerhit(){
 	if (dealerHandValue < 17){
 		let dealercardName = dealt[index].name;
 		let dealercardID = document.getElementById(dealercardName);
-		console.log(dealercardName);
 		dealercardID.classList.add("dealer" + dealerIndex);
 		dealerCards.push((dealt[index].value))
 		dealerHandAddValue();
