@@ -3,10 +3,29 @@
 <head>
 	<meta charset="utf-8">
 	<title>Snake</title>
+	<link rel="stylesheet" href="snake.css">
 </head>
 	<body>
-		<canvas id="snake" height="608" width="608">
-		</canvas>
+		<!-- Menu de navigation -->
+		<nav>
+			<div class="logo">
+				<a href="../index.html"><h3>Mini Jeux</h3></a>
+			</div>
+			<ul class="nav-links">
+				<li><a href="../morpion/morpion.html">Morpion</a></li>
+				<li><a href="../bataille/BlackJack.html">Blackjack</a></li>
+				<li><a href="snake.html">Snake</a></li>
+				<li><a href="#">Jeu 4</a></li>
+			</ul>
+		</nav>
+		<div id="game">
+			<p>SNAKE</p>
+			<canvas id="canvas" height="608" width="608"></canvas>
+		</div>
+		<div class="endgame">
+			<div class="text"></div>
+			<button id="restartButton">Rejouer</button>
+		</div>
 	<script src="snake.js"></script>
 	</body>
 </html>
