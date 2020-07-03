@@ -204,7 +204,7 @@ function gameEnd(gameWon) {
 	// Highlight all mark that makes the player win
 	for (let index of winConditions[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
-		gameWon.player == Player1.mark ? "rgba(255, 255, 255, 0.5)" : "rgba(217, 58, 44, 0.5)"; 
+		gameWon.player == Player1.mark ? "rgba(22, 184, 113, 0.5)" : "rgba(217, 58, 44, 0.5)"; 
 	}
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', turnClick, false)

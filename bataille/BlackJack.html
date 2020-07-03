@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bataille</title>
+	<link rel="stylesheet" type="text/css" href="BlackJack.css">
+</head>
+<body>
+	<!-- Menu de navigation -->
+	<nav>
+		<div class="logo">
+			<a href="../index.html"><h3>Mini Jeux</h3></a>
+		</div>
+		<ul class="nav-links">
+			<li><a href="../morpion/morpion.html">Morpion</a></li>
+			<li><a href="Blackjack.html">Blackjack</a></li>
+			<li><a href="#">Jeu 3</a></li>
+			<li><a href="#">Jeu 4</a></li>
+		</ul>
+	</nav>
+
+	<!-- Blackjack -->
+
+	<div id="game-container">
+		<div class="dealerHand">
+			<p>Dealer Hand value:&nbsp<p class="dealerHandValue"></p></p>
+		</div>
+		<div id="deck1">
+			<!-- Hoert cards -->
+			<div class="card" id="AH">
+				<div class="card-front" >
+					<img class="image" src="img/AH.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="2H">
+				<div class="card-front">
+					<img class="image" src="img/2H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="3H">
+				<div class="card-front">
+					<img class="image" src="img/3H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="4H">
+				<div class="card-front">
+					<img class="image" src="img/4H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="5H">
+				<div class="card-front">
+					<img class="image" src="img/5H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="6H">
+				<div class="card-front">
+					<img class="image" src="img/6H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="7H">
+				<div class="card-front">
+					<img class="image" src="img/7H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="8H">
+				<div class="card-front">
+					<img class="image" src="img/8H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="9H">
+				<div class="card-front">
+					<img class="image" src="img/9H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="10H">
+				<div class="card-front">
+					<img class="image" src="img/10H.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="JH">
+				<div class="card-front">
+					<img class="image" src="img/JH.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="QH">
+				<div class="card-front">
+					<img class="image" src="img/QH.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="KH">
+				<div class="card-front">
+					<img class="image" src="img/KH.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<!-- Clubs cards -->
+			<div class="card" id="AC">
+				<div class="card-front" >
+					<img class="image" src="img/AC.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="2C">
+				<div class="card-front">
+					<img class="image" src="img/2C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="3C">
+				<div class="card-front">
+					<img class="image" src="img/3C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="4C">
+				<div class="card-front">
+					<img class="image" src="img/4C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="5C">
+				<div class="card-front">
+					<img class="image" src="img/5C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="6C">
+				<div class="card-front">
+					<img class="image" src="img/6C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="7C">
+				<div class="card-front">
+					<img class="image" src="img/7C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="8C">
+				<div class="card-front">
+					<img class="image" src="img/8C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="9C">
+				<div class="card-front">
+					<img class="image" src="img/9C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="10C">
+				<div class="card-front">
+					<img class="image" src="img/10C.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="JC">
+				<div class="card-front">
+					<img class="image" src="img/JC.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="QC">
+				<div class="card-front">
+					<img class="image" src="img/QC.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="KC">
+				<div class="card-front">
+					<img class="image" src="img/KC.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<!-- Diamond cards -->
+			<div class="card" id="AD">
+				<div class="card-front" >
+					<img class="image" src="img/AofD.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="2D">
+				<div class="card-front">
+					<img class="image" src="img/2D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="3D">
+				<div class="card-front">
+					<img class="image" src="img/3D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="4D">
+				<div class="card-front">
+					<img class="image" src="img/4D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="5D">
+				<div class="card-front">
+					<img class="image" src="img/5D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="6D">
+				<div class="card-front">
+					<img class="image" src="img/6D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="7D">
+				<div class="card-front">
+					<img class="image" src="img/7D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="8D">
+				<div class="card-front">
+					<img class="image" src="img/8D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="9D">
+				<div class="card-front">
+					<img class="image" src="img/9D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="10D">
+				<div class="card-front">
+					<img class="image" src="img/10D.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="JD">
+				<div class="card-front">
+					<img class="image" src="img/JD.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="QD">
+				<div class="card-front">
+					<img class="image" src="img/QD.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="KD">
+				<div class="card-front">
+					<img class="image" src="img/KD.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<!-- Spades cards -->
+			<div class="card" id="AS">
+				<div class="card-front" >
+					<img class="image" src="img/AS.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="2S">
+				<div class="card-front">
+					<img class="image" src="img/2S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="3S">
+				<div class="card-front">
+					<img class="image" src="img/3S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="4S">
+				<div class="card-front">
+					<img class="image" src="img/4S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="5S">
+				<div class="card-front">
+					<img class="image" src="img/5S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="6S">
+				<div class="card-front">
+					<img class="image" src="img/6S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="7S">
+				<div class="card-front">
+					<img class="image" src="img/7S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="8S">
+				<div class="card-front">
+					<img class="image" src="img/8S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="9S">
+				<div class="card-front">
+					<img class="image" src="img/9S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="10S">
+				<div class="card-front">
+					<img class="image" src="img/10S.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="JS">
+				<div class="card-front">
+					<img class="image" src="img/JS.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="QS">
+				<div class="card-front">
+					<img class="image" src="img/QS.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="card" id="KS">
+				<div class="card-front">
+					<img class="image" src="img/KS.jpg" width="120" height="180">
+				</div>
+				<div class="card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>
+			<div class="top-card">
+				<div class="top-card-back">
+					<img class="image" src="img/bicycle-red.jpg" width="120" height="180">
+				</div>
+			</div>	
+		</div>
+		<!-- Player buttons -->
+		<div class="playerButtons">
+			<div class="playerHand">
+			<p>Player hand value:&nbsp<p class="playerHandValue"></p></p>
+			</div>
+			<div class="button">
+				<p class="action">What do you want to do ?</p>
+				<button onclick="hit()">Hit</button>
+				<button onclick="stand()">Stand</button>
+			</div>
+			<!-- End game screen -->
+			<div class="endgame">
+				<div class="text"></div>
+				<button onClick ="startGame()" id="restartButton">Rejouer</button>
+			</div>
+		</div>	
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="BlackJack.js"></script>
+</body>
+</html>
