@@ -1,5 +1,7 @@
-*{
+* {
 	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
 }
 
 /* Menu de Navigation */
@@ -56,7 +58,8 @@ nav
 }
 
 .dealerHand {
-	padding-top: 80px;
+	padding-top: 50px;
+	padding-bottom: 30px;
 	width: 100%;
 	height: 50px;
 	color: white;
