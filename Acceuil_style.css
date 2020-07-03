@@ -44,3 +44,118 @@ nav
 	color: #f6f1eb;
 	text-decoration: none;
 }
+
+/* Corps */
+
+.mainTitle {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+	width: 100%;
+	font-weight: normal;
+	text-align: center;
+	margin-top: 100px;
+	text-transform: uppercase;
+}
+
+/* Gamepanel */
+
+.gamePanel {
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	height: 650px;
+	width: 350px;
+	display: flex;
+	margin-right: 30px;
+	margin-left: 30px;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.container a {
+	height: 290px;
+	width: 290px;
+	color: red;
+}
+
+.gameTitle p {
+	margin-top: 50px;
+	width: 100%;
+	margin-top: -140px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.2em;
+}
+
+.effect {
+	height: 400px;
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gamePreview {
+	border-radius: 10px;
+	height: 290px;
+	width: 290px;
+	-webkit-transition: all 100ms ease;
+	-moz-transition: all 100ms ease;
+	-o-transition: all 100ms ease;
+	-ms-transition: all 100ms ease;
+	transition: all 100ms ease;
+	margin: 20px;
+	text-align: center;
+	box-shadow: none;
+}
+
+.first {
+	background-image: url(index_src/first_game.png); 
+  	background-position: center center;
+}
+.first:hover {
+	height: 300px;
+	width: 300px;
+	box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.28);
+}
+.second {
+	background-image: url(index_src/second_game.png);  
+  	background-position: center center;
+}
+.second:hover { 
+	height: 300px;
+	width: 300px;
+	box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.28);
+}
+.third {
+	background-image: url(index_src/third_game.png);  
+  	background-position: center center;
+}
+.third:hover {
+	height: 300px;
+	width: 300px;
+	box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.28);
+}
+
+/* About Section */
+
+.about {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	font-family: 'Poppins', sans-serif;
+}
+
+.paragraph {
+	
+}
