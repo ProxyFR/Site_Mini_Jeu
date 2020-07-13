@@ -58,6 +58,7 @@ nav
 /* Gamepanel */
 
 .gamePanel {
+	height: 92vh;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -163,17 +164,4 @@ h1 {
 	height: 300px;
 	width: 300px;
 	box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.28);
-}
-
-/* About Section */
-
-.about {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	font-family: 'Poppins', sans-serif;
-}
-
-.paragraph {
-	width: 100%;
 }
